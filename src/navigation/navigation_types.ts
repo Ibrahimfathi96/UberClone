@@ -4,3 +4,8 @@ export type RootStackParamList = {
   AuthStack: undefined;
   BottomNavigations: undefined;
 };
+
+export type AuthStackParamList = {
+  LoginScreen: undefined;
+  RegisterScreen: undefined;
+};
