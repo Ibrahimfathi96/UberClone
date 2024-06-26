@@ -1,5 +1,5 @@
-export const USER_TOKEN = 'WINAPP_USER_TOKEN';
-export const TOKEN_EXPIRATION = 'WINAPP_TOKEN_EXPIRATION';
+export const USER_TOKEN = '';
+export const TOKEN_EXPIRATION = '';
 
 export const API_KEY = '';
 

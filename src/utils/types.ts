@@ -1,6 +1,6 @@
 export interface IGeneralState {
   token: string | null;
-  expiresIn: string | null;
+  tokenExpiration: string | null;
   user: any;
   appLanguage: string;
   userIsCreated: boolean;
