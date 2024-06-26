@@ -3103,6 +3103,7 @@ __metadata:
     react-i18next: ^14.1.2
     react-native: 0.73.4
     react-native-ble-manager: ^11.5.5
+    react-native-fast-image: ^8.6.3
     react-native-gesture-handler: ^2.17.1
     react-native-pager-view: ^6.3.3
     react-native-reanimated: ^3.12.1
@@ -8297,6 +8298,16 @@ __metadata:
   peerDependencies:
     react-native: ">=0.60.0"
   checksum: 1679c55e86c73dbb3316a8c2dd71ac7253b4aae5e88edd753495cf6ccaf99f2de8ed2021ca01ff9c766e5e4a40b4ab0dc4ec3f99022f5e7b1ff5228d37523d40
+  languageName: node
+  linkType: hard
+
+"react-native-fast-image@npm:^8.6.3":
+  version: 8.6.3
+  resolution: "react-native-fast-image@npm:8.6.3"
+  peerDependencies:
+    react: ^17 || ^18
+    react-native: ">=0.60.0"
+  checksum: 29289cb6b2eae0983c8922b22e2d9de3be07322bb7991c5def19f95eadefaedb0e308ff0b38cc1d0444e8bd4fe94a7621a99a2d3d9298100bcb60b3144677234
   languageName: node
   linkType: hard
 
