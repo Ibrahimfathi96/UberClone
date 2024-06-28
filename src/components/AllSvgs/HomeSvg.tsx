@@ -1,16 +1,11 @@
-import * as React from 'react';
+import React, {memo} from 'react';
 import Svg, {G, Path} from 'react-native-svg';
 import {ISvgIconsProps} from '../../utils/types';
 import {Colors} from '../../utils/colors';
 import {SH, SW} from '../../utils/responsive';
 
 const HomeSvg = (props: ISvgIconsProps) => {
-  const {
-    width = SW(24),
-    height = SH(24),
-    color = Colors.black,
-    focused = false,
-  } = props;
+  const {width = SW(24), height = SH(24), focused = false} = props;
   return (
     <Svg width={width} height={height} viewBox="-0.5 0 34 34" {...props}>
       <G
@@ -22,7 +17,7 @@ const HomeSvg = (props: ISvgIconsProps) => {
         <G
           id="ui-gambling-website-lined-icnos-casinoshunter"
           transform="translate(-1383.000000, -153.000000)"
-          fill={color ?? focused ? Colors.black : Colors.grey100}
+          fill={focused ? Colors.black : Colors.black50}
           fillRule="nonzero">
           <G transform="translate(1350.000000, 120.000000)">
             <Path
@@ -36,4 +31,4 @@ const HomeSvg = (props: ISvgIconsProps) => {
   );
 };
 
-export default HomeSvg;
+export default memo(HomeSvg);

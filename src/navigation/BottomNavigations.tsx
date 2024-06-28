@@ -12,6 +12,9 @@ import {getShadowStyle} from '../utils/helpers';
 import HomeSvg from '../components/AllSvgs/HomeSvg';
 import {Fonts} from '../utils/fonts';
 import {useTranslation} from 'react-i18next';
+import ServicesSvg from '../components/AllSvgs/ServicesSvg';
+import ActivitySvg from '../components/AllSvgs/ActivitySvg';
+import AccountSvg from '../components/AllSvgs/AccountSvg';
 
 const Tab = createBottomTabNavigator<BottomNavigationsParamList>();
 
@@ -19,14 +22,36 @@ const Tab = createBottomTabNavigator<BottomNavigationsParamList>();
 const HomeIcon = memo(({focused}: {focused: boolean}) => (
   <HomeSvg focused={focused} />
 ));
-// const ServicesIcon = memo(({focused}: {focused: boolean}) => <ServicesSvg focused={focused} />);
-// const ActivityIcon = memo(({focused}: {focused: boolean}) => <ActivitySvg focused={focused} />);
-// const AccountIcon = memo(({focused}: {focused: boolean}) => <AccountSvg focused={focused} />);
+
+const ServicesIcon = memo(({focused}: {focused: boolean}) => (
+  <ServicesSvg focused={focused} />
+));
+
+const ActivityIcon = memo(({focused}: {focused: boolean}) => (
+  <ActivitySvg focused={focused} />
+));
+
+const AccountIcon = memo(({focused}: {focused: boolean}) => (
+  <AccountSvg focused={focused} />
+));
 
 const BottomNavigations = () => {
   const {t} = useTranslation();
+
   const renderHomeIcon = ({focused}: {focused: boolean}) => (
     <HomeIcon focused={focused} />
+  );
+
+  const renderServicesIcon = ({focused}: {focused: boolean}) => (
+    <ServicesIcon focused={focused} />
+  );
+
+  const renderActivityIcon = ({focused}: {focused: boolean}) => (
+    <ActivityIcon focused={focused} />
+  );
+
+  const renderAccountIcon = ({focused}: {focused: boolean}) => (
+    <AccountIcon focused={focused} />
   );
 
   return (
@@ -37,7 +62,7 @@ const BottomNavigations = () => {
         headerShown: false,
         tabBarStyle: styles.tapStyles,
         tabBarActiveTintColor: Colors.black,
-        tabBarInactiveTintColor: Colors.grey100,
+        tabBarInactiveTintColor: Colors.black50,
         tabBarLabelStyle: styles.tabBarLabelStyle,
         tabBarLabelPosition: 'below-icon',
       })}>
@@ -54,7 +79,7 @@ const BottomNavigations = () => {
         component={ServicesStack}
         options={{
           tabBarLabel: t('Services'),
-          tabBarIcon: renderHomeIcon,
+          tabBarIcon: renderServicesIcon,
         }}
       />
       <Tab.Screen
@@ -62,7 +87,7 @@ const BottomNavigations = () => {
         component={ActivityStack}
         options={{
           tabBarLabel: t('Activity'),
-          tabBarIcon: renderHomeIcon,
+          tabBarIcon: renderActivityIcon,
         }}
       />
       <Tab.Screen
@@ -70,7 +95,7 @@ const BottomNavigations = () => {
         component={AccountStack}
         options={{
           tabBarLabel: t('Account'),
-          tabBarIcon: renderHomeIcon,
+          tabBarIcon: renderAccountIcon,
         }}
       />
     </Tab.Navigator>
@@ -85,19 +110,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
-    height: Platform.OS === 'ios' ? SH(70) : SH(60),
     backgroundColor: Colors.white,
-    paddingTop: Platform.OS === 'ios' ? RPH(30) : RPH(16),
+    paddingTop: SH(10),
+    height: Platform.OS === 'ios' ? SH(86) : RPH(70),
     paddingHorizontal: RPW(20),
     borderTopLeftRadius: SBR(20),
     borderTopRightRadius: SBR(20),
     ...getShadowStyle(),
   },
   tabBarLabelStyle: {
-    bottom: SH(10),
-    fontSize: SFZ(14),
-    paddingBottom: Platform.OS === 'ios' ? 0 : '10%',
-    marginTop: SH(16),
+    fontSize: SFZ(12),
+    marginTop: SH(2),
     fontFamily: Fonts.Medium,
   },
 });
