@@ -45,13 +45,34 @@ const BottomNavigations = () => {
         name="HomeStack"
         component={HomeStack}
         options={{
-          tabBarLabel: t('Settings'),
+          tabBarLabel: t('Home'),
           tabBarIcon: renderHomeIcon,
         }}
       />
-      <Tab.Screen name="ServicesStack" component={ServicesStack} />
-      <Tab.Screen name="ActivityStack" component={ActivityStack} />
-      <Tab.Screen name="AccountStack" component={AccountStack} />
+      <Tab.Screen
+        name="ServicesStack"
+        component={ServicesStack}
+        options={{
+          tabBarLabel: t('Services'),
+          tabBarIcon: renderHomeIcon,
+        }}
+      />
+      <Tab.Screen
+        name="ActivityStack"
+        component={ActivityStack}
+        options={{
+          tabBarLabel: t('Activity'),
+          tabBarIcon: renderHomeIcon,
+        }}
+      />
+      <Tab.Screen
+        name="AccountStack"
+        component={AccountStack}
+        options={{
+          tabBarLabel: t('Account'),
+          tabBarIcon: renderHomeIcon,
+        }}
+      />
     </Tab.Navigator>
   );
 };
