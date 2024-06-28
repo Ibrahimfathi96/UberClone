@@ -9,3 +9,10 @@ export type AuthStackParamList = {
   LoginScreen: undefined;
   RegisterScreen: undefined;
 };
+
+export type BottomNavigationsParamList = {
+  HomeStack: undefined;
+  ServicesStack: undefined;
+  ActivityStack: undefined;
+  AccountStack: undefined;
+};

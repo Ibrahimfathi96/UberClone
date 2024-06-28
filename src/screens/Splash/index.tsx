@@ -1,11 +1,19 @@
 import {SafeAreaView, StatusBar} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from './styles';
 import FastImage from 'react-native-fast-image';
 import {Images} from '../../utils/images';
 import {Colors} from '../../utils/colors';
+import {ISplashScreenProps} from '../../utils/types';
 
-const SplashScreen = () => {
+const SplashScreen = (props: ISplashScreenProps) => {
+  const {navigation} = props;
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.replace('BottomNavigations');
+    }, 3000);
+  });
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor={Colors.black} />

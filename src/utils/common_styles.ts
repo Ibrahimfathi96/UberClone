@@ -3,6 +3,17 @@ import {getStatusBarHeight} from 'react-native-status-bar-height';
 import {Colors} from './colors';
 import {HP, SBR, SFZ, SH, SW} from './responsive';
 
+// 44 - on iPhone X
+// 20 - on iPhone iOS Device
+// X - on Android Platform (runtime value)
+// 0 - on all other platforms (default value)
+// console.log(`getStatusBarHeight: ${getStatusBarHeight()} on ${Platform.OS}`);
+
+// will be 0 on android, because you pass true to skipAndroidStatusBarHeight
+// console.log(
+//   `getStatusBarHeight: ${getStatusBarHeight(true)} on ${Platform.OS}`,
+// );
+
 const commonStyles = StyleSheet.create({
   centeredContainer: {
     flex: 1,
