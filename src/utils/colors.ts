@@ -16,7 +16,7 @@ export const Colors = {
   lightgreen: '#66DF48',
   blue: '#286ef0',
   black: '#000000',
-  black50: 'rgba(0, 0, 0, 0.5)',
+  black40: 'rgba(0, 0, 0, 0.4)',
   white: '#ffffff',
   darkBlue: '#2d328a',
   pagebackground: 'white',

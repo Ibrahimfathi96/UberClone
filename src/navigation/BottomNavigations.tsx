@@ -7,7 +7,7 @@ import ActivityStack from './BottomNavigators/ActivityStack';
 import AccountStack from './BottomNavigators/AccountStack';
 import {Platform, StyleSheet} from 'react-native';
 import {Colors} from '../utils/colors';
-import {RPH, RPW, SBR, SFZ, SH} from '../utils/responsive';
+import {SBR, SFZ, SH, SW} from '../utils/responsive';
 import {getShadowStyle} from '../utils/helpers';
 import HomeSvg from '../components/AllSvgs/HomeSvg';
 import {Fonts} from '../utils/fonts';
@@ -35,24 +35,14 @@ const AccountIcon = memo(({focused}: {focused: boolean}) => (
   <AccountSvg focused={focused} />
 ));
 
+// Function to render icons based on component
+const renderIcon =
+  (Component: React.ComponentType<{focused: boolean}>) =>
+  ({focused}: {focused: boolean}) =>
+    <Component focused={focused} />;
+
 const BottomNavigations = () => {
   const {t} = useTranslation();
-
-  const renderHomeIcon = ({focused}: {focused: boolean}) => (
-    <HomeIcon focused={focused} />
-  );
-
-  const renderServicesIcon = ({focused}: {focused: boolean}) => (
-    <ServicesIcon focused={focused} />
-  );
-
-  const renderActivityIcon = ({focused}: {focused: boolean}) => (
-    <ActivityIcon focused={focused} />
-  );
-
-  const renderAccountIcon = ({focused}: {focused: boolean}) => (
-    <AccountIcon focused={focused} />
-  );
 
   return (
     <Tab.Navigator
@@ -62,7 +52,7 @@ const BottomNavigations = () => {
         headerShown: false,
         tabBarStyle: styles.tapStyles,
         tabBarActiveTintColor: Colors.black,
-        tabBarInactiveTintColor: Colors.black50,
+        tabBarInactiveTintColor: Colors.black40,
         tabBarLabelStyle: styles.tabBarLabelStyle,
         tabBarLabelPosition: 'below-icon',
       })}>
@@ -71,7 +61,7 @@ const BottomNavigations = () => {
         component={HomeStack}
         options={{
           tabBarLabel: t('Home'),
-          tabBarIcon: renderHomeIcon,
+          tabBarIcon: renderIcon(HomeIcon),
         }}
       />
       <Tab.Screen
@@ -79,7 +69,7 @@ const BottomNavigations = () => {
         component={ServicesStack}
         options={{
           tabBarLabel: t('Services'),
-          tabBarIcon: renderServicesIcon,
+          tabBarIcon: renderIcon(ServicesIcon),
         }}
       />
       <Tab.Screen
@@ -87,7 +77,7 @@ const BottomNavigations = () => {
         component={ActivityStack}
         options={{
           tabBarLabel: t('Activity'),
-          tabBarIcon: renderActivityIcon,
+          tabBarIcon: renderIcon(ActivityIcon),
         }}
       />
       <Tab.Screen
@@ -95,7 +85,7 @@ const BottomNavigations = () => {
         component={AccountStack}
         options={{
           tabBarLabel: t('Account'),
-          tabBarIcon: renderAccountIcon,
+          tabBarIcon: renderIcon(AccountIcon),
         }}
       />
     </Tab.Navigator>
@@ -112,14 +102,14 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: Colors.white,
     paddingTop: SH(10),
-    height: Platform.OS === 'ios' ? SH(86) : RPH(70),
-    paddingHorizontal: RPW(20),
+    height: Platform.OS === 'ios' ? SH(86) : SH(60),
+    paddingHorizontal: SW(20),
     borderTopLeftRadius: SBR(20),
     borderTopRightRadius: SBR(20),
     ...getShadowStyle(),
   },
   tabBarLabelStyle: {
-    fontSize: SFZ(12),
+    fontSize: SFZ(14),
     marginTop: SH(2),
     fontFamily: Fonts.Medium,
   },

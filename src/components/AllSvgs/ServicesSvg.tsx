@@ -8,7 +8,7 @@ const ServicesSvg = (props: ISvgIconsProps) => {
   const {width = SW(24), height = SH(24), focused = false} = props;
   return (
     <Svg
-      fill={focused ? Colors.black : Colors.black50}
+      fill={focused ? Colors.black : Colors.black40}
       width={width}
       height={height}
       viewBox="0 0 24 24"

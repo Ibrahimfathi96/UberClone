@@ -17,7 +17,7 @@ const HomeSvg = (props: ISvgIconsProps) => {
         <G
           id="ui-gambling-website-lined-icnos-casinoshunter"
           transform="translate(-1383.000000, -153.000000)"
-          fill={focused ? Colors.black : Colors.black50}
+          fill={focused ? Colors.black : Colors.black40}
           fillRule="nonzero">
           <G transform="translate(1350.000000, 120.000000)">
             <Path
