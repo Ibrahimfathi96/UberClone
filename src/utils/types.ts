@@ -1,5 +1,7 @@
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../navigation/navigation_types';
+import {PropsWithChildren} from 'react';
+import {ColorValue, StatusBarStyle, ViewStyle} from 'react-native';
 
 export interface IGeneralState {
   token: string | null;
@@ -28,3 +30,9 @@ export type ISvgIconsProps = {
 export type ISplashScreenProps = {
   navigation: StackNavigationProp<RootStackParamList, 'SplashScreen'>;
 };
+
+export type ISafeAreaLayoutProps = PropsWithChildren<{
+  containerStyle?: ViewStyle;
+  barStyle?: StatusBarStyle | null | undefined;
+  statusBarBackgroundColor?: ColorValue | undefined;
+}>;

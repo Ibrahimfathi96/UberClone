@@ -1,12 +1,17 @@
-import {View, Text} from 'react-native';
 import React from 'react';
-import commonStyles from '../../utils/common_styles';
+import {createStackNavigator} from '@react-navigation/stack';
+import {HomeStackParamList} from '../navigation_types';
+import HomeScreen from '../../screens/Home';
+
+const Stack = createStackNavigator<HomeStackParamList>();
 
 const HomeStack = () => {
   return (
-    <View style={commonStyles.centeredContainer}>
-      <Text>HomeStack</Text>
-    </View>
+    <Stack.Navigator
+      initialRouteName="HomeScreen"
+      screenOptions={{headerShown: false}}>
+      <Stack.Screen name={'HomeScreen'} component={HomeScreen} />
+    </Stack.Navigator>
   );
 };
 

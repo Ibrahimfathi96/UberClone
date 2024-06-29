@@ -16,3 +16,7 @@ export type BottomNavigationsParamList = {
   ActivityStack: undefined;
   AccountStack: undefined;
 };
+
+export type HomeStackParamList = {
+  HomeScreen: undefined;
+};
