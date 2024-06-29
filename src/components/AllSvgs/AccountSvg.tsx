@@ -2,13 +2,13 @@ import Svg, {Path} from 'react-native-svg';
 import React from 'react';
 import {ISvgIconsProps} from '../../utils/types';
 import {SH, SW} from '../../utils/responsive';
-import {Colors} from '../../utils/colors';
+import {AppColors} from '../../utils/colors';
 
 const AccountSvg = (props: ISvgIconsProps) => {
-  const {width = SW(24), height = SH(24), focused = false} = props;
+  const {width = SW(28), height = SH(84), focused = false} = props;
   return (
     <Svg
-      fill={focused ? Colors.black : Colors.black40}
+      fill={focused ? AppColors.black : AppColors.black40}
       width={width}
       height={height}
       viewBox="-3 0 19 19"

@@ -1,14 +1,14 @@
 import React, {memo} from 'react';
 import Svg, {Path} from 'react-native-svg';
 import {SH, SW} from '../../utils/responsive';
-import {Colors} from '../../utils/colors';
+import {AppColors} from '../../utils/colors';
 import {ISvgIconsProps} from '../../utils/types';
 
 const ServicesSvg = (props: ISvgIconsProps) => {
   const {width = SW(24), height = SH(24), focused = false} = props;
   return (
     <Svg
-      fill={focused ? Colors.black : Colors.black40}
+      fill={focused ? AppColors.black : AppColors.black40}
       width={width}
       height={height}
       viewBox="0 0 24 24"

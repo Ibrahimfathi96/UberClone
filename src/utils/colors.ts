@@ -1,4 +1,4 @@
-export const Colors = {
+export const AppColors = {
   button: '#ff8c52',
   grey50: '#bebebe',
   grey100: '#43484d',

@@ -1,7 +1,7 @@
 import {Toast, ToastOptions} from 'react-native-toast-notifications';
 import {ShadowStyleProps} from './types';
 import {ViewStyle} from 'react-native';
-import {Colors} from './colors';
+import {AppColors} from './colors';
 
 export const logger = (value: any, message: string = '') => {
   console.log(message && message + '  ::\n\n', JSON.stringify(value, null, 4));
@@ -25,7 +25,7 @@ export const showToast = (
 };
 
 export const getShadowStyle = ({
-  color = Colors.black,
+  color = AppColors.black,
   elevation = 5,
 }: ShadowStyleProps = {}): ViewStyle => {
   return {

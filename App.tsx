@@ -8,7 +8,6 @@ import {persistor, store} from './src/store';
 import {Provider} from 'react-redux';
 import {NavigationContainer} from '@react-navigation/native';
 import AppNavigation from './src/navigation';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   useEffect(() => {
@@ -17,17 +16,15 @@ const App = () => {
   }, []);
 
   return (
-    <SafeAreaProvider>
-      <Provider store={store}>
-        <PersistGate loading={false} persistor={persistor}>
-          <I18nextProvider i18n={i18n}>
-            <NavigationContainer>
-              <AppNavigation />
-            </NavigationContainer>
-          </I18nextProvider>
-        </PersistGate>
-      </Provider>
-    </SafeAreaProvider>
+    <Provider store={store}>
+      <PersistGate loading={false} persistor={persistor}>
+        <I18nextProvider i18n={i18n}>
+          <NavigationContainer>
+            <AppNavigation />
+          </NavigationContainer>
+        </I18nextProvider>
+      </PersistGate>
+    </Provider>
   );
 };
 

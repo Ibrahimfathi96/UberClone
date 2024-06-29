@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
-import {Colors} from './colors';
+import {AppColors} from './colors';
 import {HP, SBR, SFZ, SH, SW} from './responsive';
 
 // 44 - on iPhone X
@@ -31,18 +31,18 @@ const commonStyles = StyleSheet.create({
     justifyContent: 'center',
   },
   styledButton: {
-    backgroundColor: Colors.button,
+    backgroundColor: AppColors.button,
     alignContent: 'center',
     justifyContent: 'center',
     borderRadius: SBR(12),
     borderWidth: 1,
-    borderColor: Colors.button,
+    borderColor: AppColors.button,
     height: HP(6),
     paddingHorizontal: SW(20),
     width: '100%',
   },
   title: {
-    color: Colors.button,
+    color: AppColors.button,
     fontSize: SFZ(20),
     fontWeight: 'bold',
   },

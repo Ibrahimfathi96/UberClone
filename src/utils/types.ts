@@ -35,4 +35,5 @@ export type ISafeAreaLayoutProps = PropsWithChildren<{
   containerStyle?: ViewStyle;
   barStyle?: StatusBarStyle | null | undefined;
   statusBarBackgroundColor?: ColorValue | undefined;
+  isTranslucent?: boolean | undefined;
 }>;

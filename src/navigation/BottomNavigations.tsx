@@ -6,7 +6,7 @@ import ServicesStack from './BottomNavigators/ServicesStack';
 import ActivityStack from './BottomNavigators/ActivityStack';
 import AccountStack from './BottomNavigators/AccountStack';
 import {Platform, StyleSheet} from 'react-native';
-import {Colors} from '../utils/colors';
+import {AppColors} from '../utils/colors';
 import {SBR, SFZ, SH, SW} from '../utils/responsive';
 import {getShadowStyle} from '../utils/helpers';
 import HomeSvg from '../components/AllSvgs/HomeSvg';
@@ -51,8 +51,8 @@ const BottomNavigations = () => {
         tabBarHideOnKeyboard: true,
         headerShown: false,
         tabBarStyle: styles.tapStyles,
-        tabBarActiveTintColor: Colors.black,
-        tabBarInactiveTintColor: Colors.black40,
+        tabBarActiveTintColor: AppColors.black,
+        tabBarInactiveTintColor: AppColors.black40,
         tabBarLabelStyle: styles.tabBarLabelStyle,
         tabBarLabelPosition: 'below-icon',
       })}>
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
-    backgroundColor: Colors.white,
+    backgroundColor: AppColors.white,
     paddingTop: SH(10),
     height: Platform.OS === 'ios' ? SH(86) : SH(60),
     paddingHorizontal: SW(20),

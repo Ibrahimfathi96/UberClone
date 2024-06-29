@@ -3,7 +3,7 @@ import React, {useEffect} from 'react';
 import styles from './styles';
 import FastImage from 'react-native-fast-image';
 import {Images} from '../../utils/images';
-import {Colors} from '../../utils/colors';
+import {AppColors} from '../../utils/colors';
 import {ISplashScreenProps} from '../../utils/types';
 
 const SplashScreen = (props: ISplashScreenProps) => {
@@ -16,7 +16,7 @@ const SplashScreen = (props: ISplashScreenProps) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor={Colors.black} />
+      <StatusBar barStyle="light-content" backgroundColor={AppColors.black} />
       <FastImage
         source={Images.whiteLogo}
         style={styles.logo}
