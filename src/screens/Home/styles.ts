@@ -2,12 +2,17 @@ import {StyleSheet} from 'react-native';
 import {AppColors} from '../../utils/colors';
 import commonStyles from '../../utils/common_styles';
 import {SBR, SFZ, SH, SW} from '../../utils/responsive';
+import {getStatusBarHeight} from 'react-native-status-bar-height';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: AppColors.white,
     paddingBottom: SW(30),
+  },
+  onlyIOSPaddingTop: {
+    height: getStatusBarHeight(),
+    backgroundColor: AppColors.blue,
   },
   header: {
     ...commonStyles.headerHeight,
