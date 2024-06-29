@@ -1,22 +1,27 @@
-export const filterData = [
+export type IFilterData = {
+  name: string;
+  image: any;
+  id: string;
+};
+export const filterData: IFilterData[] = [
   {
     name: 'Ride',
-    image: require('../../assets/ride.png'),
+    image: require('../assets/images/ride.png'),
     id: '0',
   },
   {
     name: 'Food',
-    image: require('../../assets/food.png'),
+    image: require('../assets/images/food.png'),
     id: '1',
   },
   {
     name: 'Package',
-    image: require('../../assets/package.png'),
+    image: require('../assets/images/package.png'),
     id: '2',
   },
   {
     name: 'Reserve',
-    image: require('../../assets/reserve.png'),
+    image: require('../assets/images/reserve.png'),
     id: '3',
   },
 ];
@@ -50,83 +55,81 @@ export const rideData = [
 ];
 
 export const carTypeData = [
-  {
-    title: 'Popular',
-    data: [
-      {
-        name: 'Uber Go',
-        group: 2,
-        price: 7,
-        image: require('../../assets/uberGo.png'),
-        note: 'Affordable.compact rides',
-        promotion: 5,
-        time: '20:19',
-        id: '0',
-      },
-      {
-        name: 'UberX',
-        group: 3,
-        price: 5.5,
-        image: require('../../assets/uberX.png'),
-        note: 'Affordable everyday trips',
-        promotion: 0,
-        time: '20:20',
-        id: '1',
-      },
-      {
-        name: 'Connect',
-        group: 0,
-        price: 12.6,
-        image: require('../../assets/uberConnect.png'),
-        note: 'Send and receive packages',
-        promotion: 10,
-        time: '20:33',
-        id: '2',
-      },
-    ],
-  },
-
-  {
-    title: 'Premium',
-    data: [
-      {
-        name: 'Black',
-        group: 3,
-        price: 17.4,
-        image: require('../../assets/uberBlack.png'),
-        note: 'Premium trips in luxury cars',
-        promotion: 0,
-        time: '20:31',
-        id: '3',
-      },
-      {
-        name: 'Van',
-        group: 6,
-        price: 22.3,
-        image: require('../../assets/uberVan.png'),
-        note: 'Rides for groups up to 6',
-        promotion: 12,
-        time: '20:31',
-        id: '4',
-      },
-    ],
-  },
-
-  {
-    title: 'More',
-    data: [
-      {
-        name: 'Assist',
-        group: 3,
-        price: 35.3,
-        image: require('../../assets/uberAssist.png'),
-        note: 'Special assistance from certified drivers',
-        promotion: 26,
-        time: '20:25',
-        id: '5',
-      },
-    ],
-  },
+  // {
+  //   title: 'Popular',
+  //   data: [
+  //     {
+  //       name: 'Uber Go',
+  //       group: 2,
+  //       price: 7,
+  //       image: require('../assets/imagesuberGo.png'),
+  //       note: 'Affordable.compact rides',
+  //       promotion: 5,
+  //       time: '20:19',
+  //       id: '0',
+  //     },
+  //     {
+  //       name: 'UberX',
+  //       group: 3,
+  //       price: 5.5,
+  //       image: require('../assets/imagesuberX.png'),
+  //       note: 'Affordable everyday trips',
+  //       promotion: 0,
+  //       time: '20:20',
+  //       id: '1',
+  //     },
+  //     {
+  //       name: 'Connect',
+  //       group: 0,
+  //       price: 12.6,
+  //       image: require('../assets/imagesuberConnect.png'),
+  //       note: 'Send and receive packages',
+  //       promotion: 10,
+  //       time: '20:33',
+  //       id: '2',
+  //     },
+  //   ],
+  // },
+  // {
+  //   title: 'Premium',
+  //   data: [
+  //     {
+  //       name: 'Black',
+  //       group: 3,
+  //       price: 17.4,
+  //       image: require('../assets/images/uberBlack.png'),
+  //       note: 'Premium trips in luxury cars',
+  //       promotion: 0,
+  //       time: '20:31',
+  //       id: '3',
+  //     },
+  //     {
+  //       name: 'Van',
+  //       group: 6,
+  //       price: 22.3,
+  //       image: require('../assets/images/uberVan.png'),
+  //       note: 'Rides for groups up to 6',
+  //       promotion: 12,
+  //       time: '20:31',
+  //       id: '4',
+  //     },
+  //   ],
+  // },
+  // {
+  //   title: 'More',
+  //   data: [
+  //     {
+  //       name: 'Assist',
+  //       group: 3,
+  //       price: 35.3,
+  //       image: require('../assets/images/uberAssist.png'),
+  //       note: 'Special assistance from certified drivers',
+  //       promotion: 26,
+  //       time: '20:25',
+  //       id: '5',
+  //     },
+  //   ],
+  // },
 ];
 
 export const requestData = [
@@ -154,14 +157,14 @@ export const rideOptions = [
 ];
 
 export const paymentOptions = [
-  {
-    image: require('../../assets/visaIcon.png'),
-    text: 'Visa ...0476',
-  },
-  {
-    image: require('../../assets/cashIcon.png'),
-    text: 'Cash',
-  },
+  // {
+  //   image: require('../assets/images/visaIcon.png'),
+  //   text: 'Visa ...0476',
+  // },
+  // {
+  //   image: require('../assets/images/cashIcon.png'),
+  //   text: 'Cash',
+  // },
 ];
 
 export const availableServices = [

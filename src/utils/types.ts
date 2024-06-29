@@ -1,7 +1,7 @@
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../navigation/navigation_types';
 import {PropsWithChildren} from 'react';
-import {ColorValue, StatusBarStyle, ViewStyle} from 'react-native';
+import {ColorValue, StatusBarStyle, TextStyle, ViewStyle} from 'react-native';
 
 export interface IGeneralState {
   token: string | null;
@@ -37,3 +37,10 @@ export type ISafeAreaLayoutProps = PropsWithChildren<{
   statusBarBackgroundColor?: ColorValue | undefined;
   isTranslucent?: boolean | undefined;
 }>;
+
+export type IAppButtonProps = {
+  btnText: string;
+  onPress: () => void;
+  btnStyle?: ViewStyle;
+  btnTextStyle?: TextStyle;
+};
