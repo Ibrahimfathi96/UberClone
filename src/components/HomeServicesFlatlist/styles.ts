@@ -7,12 +7,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     margin: screenWidth / 22,
   },
-  view2: {
+  imgView: {
     marginBottom: SH(5),
     borderRadius: SBR(15),
     backgroundColor: AppColors.grey600,
   },
-  image2: {
+  image: {
     height: SH(60),
     width: SW(60),
     borderRadius: SBR(30),

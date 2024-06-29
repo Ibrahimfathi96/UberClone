@@ -8,8 +8,8 @@ const HomeServicesFlatlist = () => {
   const keyExtractor = (item: IFilterData) => item.id;
   const renderItem = ({item}: {item: IFilterData}) => (
     <View style={styles.card}>
-      <View style={styles.view2}>
-        <FastImage style={styles.image2} source={item.image} />
+      <View style={styles.imgView}>
+        <FastImage style={styles.image} source={item.image} />
       </View>
       <View>
         <Text style={styles.title}>{item.name}</Text>
