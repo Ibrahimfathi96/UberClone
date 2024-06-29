@@ -6,7 +6,7 @@ import {SH, SW} from '../../utils/responsive';
 
 const styles = StyleSheet.create({
   onlyIOSPaddingTop: {
-    height: getStatusBarHeight(),
+    height: getStatusBarHeight() + SH(20),
     backgroundColor: AppColors.blue,
   },
   header: {

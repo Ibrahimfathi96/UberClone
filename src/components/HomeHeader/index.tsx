@@ -8,7 +8,7 @@ import {SFZ} from '../../utils/responsive';
 const HomeHeader = () => {
   return (
     <View>
-      <StatusBar barStyle="light-content" />
+      <StatusBar barStyle="light-content" backgroundColor={AppColors.blue} />
       {Platform.OS === 'ios' && <View style={styles.onlyIOSPaddingTop} />}
       <View style={styles.header}>
         <View style={styles.menuIconView}>
