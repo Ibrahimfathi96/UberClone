@@ -34,8 +34,12 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
-  <key>UIAppFonts</key>
-  <array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We use your location to show where you are on the map</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We use your location to show where you are on the map</string>
+  	<key>UIAppFonts</key>
+	<array>
     <string>AntDesign.ttf</string>
     <string>Entypo.ttf</string>
     <string>EvilIcons.ttf</string>

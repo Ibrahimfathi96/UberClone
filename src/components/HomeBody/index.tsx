@@ -1,5 +1,11 @@
-import {View, Text, ScrollView, Image} from 'react-native';
-import React, {useRef} from 'react';
+import {
+  View,
+  Text,
+  ScrollView,
+  Platform,
+  PermissionsAndroid,
+} from 'react-native';
+import React, {useEffect, useState, useRef} from 'react';
 import {useTranslation} from 'react-i18next';
 import FastImage from 'react-native-fast-image';
 import AppButton from '../AppButton';
@@ -12,6 +18,8 @@ import {SFZ} from '../../utils/responsive';
 import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import {carsAround} from '../../utils/data';
 import {mapStyle} from '../../utils/common_styles';
+import Geolocation from '@react-native-community/geolocation';
+import {logger} from '../../utils/helpers';
 
 const HomeBody = () => {
   const {t} = useTranslation();
@@ -51,6 +59,72 @@ export default HomeBody;
 const HomeMapView = () => {
   const _map = useRef<MapView>(null);
 
+  const [latlng, setLatLng] = useState({});
+  logger(latlng);
+
+  const checkPermission = async () => {
+    const hasPermission = await requestLocationPermission();
+    if (hasPermission) {
+      const permission = await askPermission();
+      return permission;
+    }
+    return true;
+  };
+
+  const askPermission = async () => {
+    const permission = await requestLocationPermission();
+    return permission;
+  };
+
+  const requestLocationPermission = async () => {
+    if (Platform.OS === 'ios') {
+      return true;
+    }
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+        {
+          title: 'Location Permission',
+          message: 'App needs access to your location.',
+          buttonNeutral: 'Ask Me Later',
+          buttonNegative: 'Cancel',
+          buttonPositive: 'OK',
+        },
+      );
+      return granted === PermissionsAndroid.RESULTS.GRANTED;
+    } catch (err) {
+      console.warn(err);
+      return false;
+    }
+  };
+
+  const getLocation = async () => {
+    try {
+      const hasPermission = await requestLocationPermission();
+      if (!hasPermission) {
+        return;
+      }
+
+      Geolocation.getCurrentPosition(
+        position => {
+          const {latitude, longitude} = position.coords;
+          setLatLng({latitude, longitude});
+        },
+        error => {
+          console.error(error);
+        },
+        {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
+      );
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    checkPermission();
+    getLocation();
+  }, []);
+
   return (
     <View style={styles.mapView}>
       <MapView
@@ -60,17 +134,19 @@ const HomeMapView = () => {
         customMapStyle={mapStyle}
         showsUserLocation={true}
         followsUserLocation={true}
+        paddingAdjustmentBehavior="always"
+        mapType="standard"
         initialRegion={{
           ...carsAround[0],
-          latitudeDelta: 0.008,
-          longitudeDelta: 0.008,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
         }}>
         {carsAround.map((item, index) => (
           <Marker coordinate={item} key={index.toString()}>
-            <Image
+            <FastImage
               source={Images.carMarker}
               style={styles.carsAround}
-              resizeMode="cover"
+              resizeMode={FastImage.resizeMode.contain}
             />
           </Marker>
         ))}

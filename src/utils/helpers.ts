@@ -1,3 +1,5 @@
+import Geolocation from '@react-native-community/geolocation';
+import {PermissionsAndroid, Platform} from 'react-native';
 import {Toast, ToastOptions} from 'react-native-toast-notifications';
 import {ShadowStyleProps} from './types';
 import {ViewStyle} from 'react-native';
@@ -44,4 +46,41 @@ export const getShadowStyle = ({
 
     elevation: elevation,
   };
+};
+
+// locationUtils
+export const requestLocationPermission = async () => {
+  if (Platform.OS === 'ios') {
+    return true;
+  }
+  try {
+    const granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+      {
+        title: 'Location Permission',
+        message: 'App needs access to your location.',
+        buttonNeutral: 'Ask Me Later',
+        buttonNegative: 'Cancel',
+        buttonPositive: 'OK',
+      },
+    );
+    return granted === PermissionsAndroid.RESULTS.GRANTED;
+  } catch (err) {
+    console.warn(err);
+    return false;
+  }
+};
+
+export const getCurrentLocation = async () => {
+  return new Promise((resolve, reject) => {
+    Geolocation.getCurrentPosition(
+      position => {
+        resolve(position.coords);
+      },
+      error => {
+        reject(error);
+      },
+      {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
+    );
+  });
 };
