@@ -1,11 +1,14 @@
 import {StyleSheet} from 'react-native';
 import {AppColors} from '../../utils/colors';
-import {SBR, screenWidth, SFZ, SH, SW} from '../../utils/responsive';
+import {HP, SBR, screenWidth, SFZ, SH, SW} from '../../utils/responsive';
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: AppColors.blue,
     paddingLeft: SW(20),
+  },
+  scrollingContainer: {
+    paddingBottom: HP(10),
   },
   text1: {
     color: AppColors.white,

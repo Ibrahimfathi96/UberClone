@@ -16,7 +16,11 @@ import {mapStyle} from '../../utils/common_styles';
 const HomeBody = () => {
   const {t} = useTranslation();
   return (
-    <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
+    <ScrollView
+      scrollEnabled
+      bounces={false}
+      contentContainerStyle={styles.scrollingContainer}
+      showsVerticalScrollIndicator={false}>
       <HomeUpperView />
 
       {/**TODO: FIX THE IMAGE INSIDE THE CARD */}
