@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {AppColors} from '../../utils/colors';
-import {SBR, SFZ, SH, SW} from '../../utils/responsive';
+import {SBR, screenWidth, SFZ, SH, SW} from '../../utils/responsive';
 
 const styles = StyleSheet.create({
   container: {
@@ -98,6 +98,19 @@ const styles = StyleSheet.create({
     color: AppColors.black,
     marginLeft: SW(20),
     marginBottom: SH(20),
+  },
+  mapView: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  map: {
+    height: SH(150),
+    marginVertical: 0,
+    width: screenWidth * 0.92,
+  },
+  carsAround: {
+    width: SW(28),
+    height: SH(14),
   },
 });
 

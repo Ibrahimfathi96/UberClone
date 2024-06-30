@@ -3159,7 +3159,7 @@ __metadata:
     react-native-ble-manager: ^11.5.5
     react-native-fast-image: ^8.6.3
     react-native-gesture-handler: ^2.17.1
-    react-native-maps: ^1.15.6
+    react-native-maps: 1.14.0
     react-native-pager-view: ^6.3.3
     react-native-reanimated: ^3.12.1
     react-native-responsive-screen: ^1.4.2
@@ -8502,9 +8502,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-maps@npm:^1.15.6":
-  version: 1.15.6
-  resolution: "react-native-maps@npm:1.15.6"
+"react-native-maps@npm:1.14.0":
+  version: 1.14.0
+  resolution: "react-native-maps@npm:1.14.0"
   dependencies:
     "@types/geojson": ^7946.0.13
   peerDependencies:
@@ -8514,7 +8514,7 @@ __metadata:
   peerDependenciesMeta:
     react-native-web:
       optional: true
-  checksum: 42baf0dfa930f799ad7ab833215511dbee72fb02622feef67d62c1fc111585e8fa73c20e7f3e292bd233876a453ae3129e2a7144b43375cd0ffe834907858405
+  checksum: 2fcbd3c191e0cd6146b1d4df20344475ff42a69c75f471045416e3e9beb081dacbfe70d9a266cc3f9293d30319ef59469acad67f5145cb8134ebf8f464fd0fc4
   languageName: node
   linkType: hard
 

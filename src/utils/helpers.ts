@@ -3,6 +3,11 @@ import {ShadowStyleProps} from './types';
 import {ViewStyle} from 'react-native';
 import {AppColors} from './colors';
 
+// export const logger = item => {
+//   if (__DEV__) {
+//     console.log(util.inspect(item, {depth: 5, colors: true}));
+//   }
+// };
 export const logger = (value: any, message: string = '') => {
   console.log(message && message + '  ::\n\n', JSON.stringify(value, null, 4));
 };

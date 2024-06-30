@@ -1,5 +1,5 @@
-import {View, Text, ScrollView} from 'react-native';
-import React from 'react';
+import {View, Text, ScrollView, Image} from 'react-native';
+import React, {useRef} from 'react';
 import {useTranslation} from 'react-i18next';
 import FastImage from 'react-native-fast-image';
 import AppButton from '../AppButton';
@@ -9,11 +9,14 @@ import HomeServicesFlatlist from '../HomeServicesFlatlist';
 import {Icon} from '@rneui/themed';
 import {AppColors} from '../../utils/colors';
 import {SFZ} from '../../utils/responsive';
+import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
+import {carsAround} from '../../utils/data';
+import {mapStyle} from '../../utils/common_styles';
 
 const HomeBody = () => {
   const {t} = useTranslation();
   return (
-    <ScrollView bounces={false}>
+    <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
       <HomeUpperView />
 
       {/**TODO: FIX THE IMAGE INSIDE THE CARD */}
@@ -33,11 +36,44 @@ const HomeBody = () => {
       />
 
       <Text style={styles.aroundYou}>{t('Around you')}</Text>
+
+      <HomeMapView />
     </ScrollView>
   );
 };
 
 export default HomeBody;
+
+const HomeMapView = () => {
+  const _map = useRef<MapView>(null);
+
+  return (
+    <View style={styles.mapView}>
+      <MapView
+        ref={_map}
+        provider={PROVIDER_GOOGLE}
+        style={styles.map}
+        customMapStyle={mapStyle}
+        showsUserLocation={true}
+        followsUserLocation={true}
+        initialRegion={{
+          ...carsAround[0],
+          latitudeDelta: 0.008,
+          longitudeDelta: 0.008,
+        }}>
+        {carsAround.map((item, index) => (
+          <Marker coordinate={item} key={index.toString()}>
+            <Image
+              source={Images.carMarker}
+              style={styles.carsAround}
+              resizeMode="cover"
+            />
+          </Marker>
+        ))}
+      </MapView>
+    </View>
+  );
+};
 
 const HomeUpperView = () => {
   const {t} = useTranslation();
