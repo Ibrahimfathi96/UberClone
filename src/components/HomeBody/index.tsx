@@ -5,7 +5,7 @@ import {
   Platform,
   PermissionsAndroid,
 } from 'react-native';
-import React, {useEffect, useState, useRef} from 'react';
+import React, {useEffect, useState, useRef, useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import FastImage from 'react-native-fast-image';
 import AppButton from '../AppButton';
@@ -62,19 +62,23 @@ const HomeMapView = () => {
   const [latlng, setLatLng] = useState({});
   logger(latlng);
 
-  const checkPermission = async () => {
-    const hasPermission = await requestLocationPermission();
-    if (hasPermission) {
-      const permission = await askPermission();
+  const askPermission = useCallback(() => {
+    async () => {
+      const permission = await requestLocationPermission();
       return permission;
-    }
-    return true;
-  };
+    };
+  }, []);
 
-  const askPermission = async () => {
-    const permission = await requestLocationPermission();
-    return permission;
-  };
+  const checkPermission = useCallback(() => {
+    async () => {
+      const hasPermission = await requestLocationPermission();
+      if (hasPermission) {
+        const permission = await askPermission();
+        return permission;
+      }
+      return true;
+    };
+  }, [askPermission]);
 
   const requestLocationPermission = async () => {
     if (Platform.OS === 'ios') {
@@ -98,32 +102,34 @@ const HomeMapView = () => {
     }
   };
 
-  const getLocation = async () => {
-    try {
-      const hasPermission = await requestLocationPermission();
-      if (!hasPermission) {
-        return;
-      }
+  const getLocation = useCallback(() => {
+    async () => {
+      try {
+        const hasPermission = await requestLocationPermission();
+        if (!hasPermission) {
+          return;
+        }
 
-      Geolocation.getCurrentPosition(
-        position => {
-          const {latitude, longitude} = position.coords;
-          setLatLng({latitude, longitude});
-        },
-        error => {
-          console.error(error);
-        },
-        {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
-      );
-    } catch (err) {
-      console.error(err);
-    }
-  };
+        Geolocation.getCurrentPosition(
+          position => {
+            const {latitude, longitude} = position.coords;
+            setLatLng({latitude, longitude});
+          },
+          error => {
+            console.error(error);
+          },
+          {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
+        );
+      } catch (err) {
+        console.error(err);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     checkPermission();
     getLocation();
-  }, []);
+  }, [checkPermission, getLocation]);
 
   return (
     <View style={styles.mapView}>

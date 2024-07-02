@@ -5,17 +5,17 @@ import {SBR, screenWidth, SFZ, SH, SW} from '../../utils/responsive';
 const styles = StyleSheet.create({
   card: {
     alignItems: 'center',
-    margin: screenWidth / 22,
+    marginVertical: screenWidth / 22,
+    marginHorizontal: screenWidth / 20,
   },
   imgView: {
-    marginBottom: SH(5),
-    borderRadius: SBR(15),
     backgroundColor: AppColors.grey600,
+    borderRadius: SBR(10),
   },
   image: {
-    height: SH(60),
-    width: SW(60),
-    borderRadius: SBR(30),
+    height: SH(50),
+    width: SW(50),
+    margin: SH(4),
   },
   title: {
     color: AppColors.black,

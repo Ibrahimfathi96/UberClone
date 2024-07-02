@@ -11,7 +11,7 @@ export const filterData: IFilterData[] = [
   },
   {
     name: 'Food',
-    image: require('../assets/images/food.png'),
+    image: require('../assets/images/food2.png'),
     id: '1',
   },
   {

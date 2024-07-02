@@ -6,10 +6,15 @@ import FastImage from 'react-native-fast-image';
 
 const HomeServicesFlatlist = () => {
   const keyExtractor = (item: IFilterData) => item.id;
+
   const renderItem = ({item}: {item: IFilterData}) => (
     <View style={styles.card}>
       <View style={styles.imgView}>
-        <FastImage style={styles.image} source={item.image} />
+        <FastImage
+          style={styles.image}
+          source={item.image}
+          resizeMode={FastImage.resizeMode.contain}
+        />
       </View>
       <View>
         <Text style={styles.title}>{item.name}</Text>
