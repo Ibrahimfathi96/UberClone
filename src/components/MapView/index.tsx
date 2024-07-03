@@ -1,5 +1,4 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
-import {logger} from '../../utils/helpers';
 import Geolocation from '@react-native-community/geolocation';
 import {Platform, PermissionsAndroid, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
@@ -8,12 +7,12 @@ import {mapStyle} from '../../utils/common_styles';
 import {carsAround} from '../../utils/data';
 import {Images} from '../../utils/images';
 import styles from './styles';
+import {logger} from '../../utils/helpers';
 
 const HomeMapView = () => {
   const _map = useRef<MapView>(null);
 
   const [latlng, setLatLng] = useState({});
-  logger(latlng);
 
   const askPermission = useCallback(() => {
     async () => {
@@ -83,6 +82,8 @@ const HomeMapView = () => {
     checkPermission();
     getLocation();
   }, [checkPermission, getLocation]);
+
+  logger(latlng, 'location');
 
   return (
     <View style={styles.mapView}>
