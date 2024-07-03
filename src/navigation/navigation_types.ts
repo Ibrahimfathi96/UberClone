@@ -19,4 +19,5 @@ export type BottomNavigationsParamList = {
 
 export type HomeStackParamList = {
   HomeScreen: undefined;
+  RequestRide: undefined;
 };

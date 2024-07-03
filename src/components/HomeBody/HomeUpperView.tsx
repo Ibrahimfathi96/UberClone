@@ -5,9 +5,13 @@ import FastImage from 'react-native-fast-image';
 import {Images} from '../../utils/images';
 import AppButton from '../AppButton';
 import styles from './styles';
+import {useNavigation} from '@react-navigation/native';
+import {HomeStackParamList} from '../../navigation/navigation_types';
+import {StackNavigationProp} from '@react-navigation/stack';
 
 const HomeUpperView = () => {
   const {t} = useTranslation();
+  const navigation = useNavigation<StackNavigationProp<HomeStackParamList>>();
 
   return (
     <View style={styles.container}>
@@ -18,7 +22,10 @@ const HomeUpperView = () => {
             {t('Read a book, Take a nap, Stare out the window')}
           </Text>
 
-          <AppButton onPress={() => {}} btnText={t('Ride with Uber')} />
+          <AppButton
+            onPress={() => navigation.navigate('RequestRide')}
+            btnText={t('Ride with Uber')}
+          />
         </View>
 
         <View>
