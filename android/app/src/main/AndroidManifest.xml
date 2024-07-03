@@ -15,7 +15,8 @@
       <!-- You will only need to add this meta-data tag, but make sure it's a child of application -->
       <meta-data
       android:name="com.google.android.geo.API_KEY"
-      android:value="AIzaSyAQEW4ToFxfIoskHK-F4KElbTU4lsbqC40"/>
+      android:value="AIzaSyAoNqPRg2RC6SqlmnudiRmBQ6ZPxNGyFIc"/>
+      <!-- android:value="AIzaSyAQEW4ToFxfIoskHK-F4KElbTU4lsbqC40"/> -->
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"

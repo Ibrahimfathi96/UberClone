@@ -17,9 +17,9 @@ import {AppColors} from '../../utils/colors';
 import {SFZ} from '../../utils/responsive';
 import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import {carsAround} from '../../utils/data';
-import {mapStyle} from '../../utils/common_styles';
 import Geolocation from '@react-native-community/geolocation';
 import {logger} from '../../utils/helpers';
+import {mapStyle} from '../../utils/common_styles';
 
 const HomeBody = () => {
   const {t} = useTranslation();

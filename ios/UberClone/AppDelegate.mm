@@ -7,7 +7,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  [GMSServices provideAPIKey:@"AIzaSyAQEW4ToFxfIoskHK-F4KElbTU4lsbqC40"];
+  [GMSServices provideAPIKey:@"AIzaSyAoNqPRg2RC6SqlmnudiRmBQ6ZPxNGyFIc"];
   self.moduleName = @"UberClone";
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
