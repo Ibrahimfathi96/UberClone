@@ -102,19 +102,6 @@ const styles = StyleSheet.create({
     marginLeft: SW(20),
     marginBottom: SH(20),
   },
-  mapView: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  map: {
-    width: '95%',
-    height: HP(26),
-    borderRadius: SBR(10),
-  },
-  carsAround: {
-    width: SW(28),
-    height: SH(14),
-  },
 });
 
 export default styles;
